@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+
+<style>
+
+
+input{
+
+    background-color: rgba(244, 244, 244, 0.772);
+    border-radius: 8px;
+    border-width: 0;
+    color: #1a1919;
+    border-color: white;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 10px 12px;
+    text-align: center;
+    transition: all 200ms;
+    vertical-align: baseline;
+    white-space: nowrap;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+
+
+}
+
+
+
+button {
+    background-color: rgba(244, 244, 244, 0.772);
+    border-radius: 8px;
+    border-width: 0;
+    color: #1a1919;
+    border-color: white;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 10px 12px;
+    text-align: center;
+    transition: all 200ms;
+    vertical-align: baseline;
+    white-space: nowrap;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+button:hover{
+
+
+    background-color: rgba(121, 117, 117, 0.772);
+    border-radius: 8px;
+    border-width: 0;
+    color: #1a1919;
+    border-color: white;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 10px 12px;
+    text-align: center;
+    transition: all 200ms;
+    vertical-align: baseline;
+    white-space: nowrap;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+
+
+}
+
+button:disabled{
+
+    background-color: rgba(121, 117, 117, 0.772);
+    border-radius: 8px;
+    border-width: 0;
+    color: #1a1919;
+    border-color: white;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 10px 12px;
+    text-align: center;
+    transition: all 200ms;
+    vertical-align: baseline;
+    white-space: nowrap;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+
+
+
+}
+
+input:hover{
+
+    background-color: rgba(121, 117, 117, 0.772);
+    border-radius: 8px;
+    border-width: 0;
+    color: #1a1919;
+    border-color: white;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 10px 12px;
+    text-align: center;
+    transition: all 200ms;
+    vertical-align: baseline;
+    white-space: nowrap;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+
+}
+
+
+
+
+    footer{
+
+        color: aqua;
+
+        background-color: aqua;
+    }
+
+
+    body{
+
+        
+
+        background-color: #ffffff;
+
+        color: #31363F;
+
+        
+    }
+    p {
+        text-decoration: overline underline;
+        font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 20px;
+
+
+}
+
+
+    
+</style>
+<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
+
+<html lang="en">
+<head>
+    <img src="" alt="">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Insound</title>
+</head>
+<body>
+
+    <script>
+
+
+        function randNote(){
+
+        var index = Math.floor(Math.random() *13);
+
+        if(index == 0){
+
+            return(randNote());
+
+
+        }
+
+        console.log(index);
+
+
+
+
+        //console.log(index.toString());
+
+        return index;
+
+
+        }
+
+
+        function randFile(index){
+
+        if(index == 1){
+
+            return("anatural.mp3");
+
+            sendData("a");
+        }
+        else if (index == 2){
+
+            return("asharp.mp3");
+
+            sendData("a#");
+
+        }
+
+        
+
+        else if (index == 3){
+
+            return("bflat.mp3");
+
+
+        }
+
+        else if (index == 4){
+
+            return("bnatural.mp3");
+            sendData("b");
+
+        }
+
+        else if (index == 5){
+
+            return("c.mp3");
+
+            sendData("c");
+
+        }
+
+        else if (index == 6){
+
+            return("csharp.mp3");
+
+            sendData("c#");
+
+        }
+        else if (index == 7){
+
+            return("dnatural.mp3");
+            sendData("d");
+
+        }
+
+        else if (index == 8){
+
+            return("dsharp.mp3");
+            sendData("d#");
+
+        }
+        else if (index == 9){
+
+            return("enatural.mp3");
+            sendData("e");
+
+        }
+        else if (index == 10){
+
+            return("fnatural.mp3");
+            sendData("f");
+
+        }
+
+        else if (index == 11){
+
+            return("fsharp.mp3");
+            sendData("f#");
+
+
+
+        }
+        else if (index == 12){
+
+            return("gnatural.mp3");
+            sendData("g");
+
+
+
+        }
+
+        else if (index == 13){
+
+            return ("gsharp.mp3");
+            sendData("g#");
+
+
+
+        }
+
+        }
+
+
+        function myFunction(button){
+            const obj = randFile(randNote());
+            var audio = new Audio('static/music/'+obj);
+            //console.log(obj);
+            //window.alert(obj);
+
+            audio.play();
+            button.disabled = true;
+        }
+
+
+        function sendData(value) { 
+            
+            $.ajax({ 
+                url: '/process', 
+                type: 'POST', 
+                contentType: 'application/json', 
+                data: JSON.stringify({ 'value': value }), 
+                success: function(response) { 
+                    document.getElementById('output').innerHTML = response.result; 
+                }, 
+                error: function(error) { 
+                    console.log(error); 
+                } 
+            }); 
+        } 
+
+
+        
+    </script>
+
+
+    <center>
+
+        <button value="sound" onclick="myFunction(this);">Play Note</button>
+        <br>
+        <br>
+        <br>
+        <button value="sound" onclick="window.location.reload()">Change Note</button>
+    
+        <br>
+        <p>What note is this?</p>
+    
+        <form name = "submit" action="submission" method="post" onsubmit="">
+            <input type="radio" id="note1" name="select" value="a">
+            <label for="note1">A</label>
+    
+    
+            <input type="radio" id="note2" name="select" value="b">
+            <label for="note2">B</label>
+    
+            <p>
+                <input type=submit value="Next">
+            </p>
+    
+    
+    
+        </form>
+    
+
+        
+    </center>
+
+
+        
+</body>
+</html>
