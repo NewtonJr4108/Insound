@@ -1,8 +1,29 @@
 <!DOCTYPE html>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
-
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 <style>
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:600');
+
+
+
+
+body {
+    align-items: center;
+    background: #EEF5FD;
+    color: #545556;
+    display: flex;
+    font-family: "Open Sans", sans-serif;
+    font-size: 20px;
+    height: 100vh;
+    justify-content: center;
+    margin: 0;
+}
+
+
+
+
 
 
 input{
@@ -199,7 +220,7 @@ input:hover{
 
         }
 
-        console.log(index);
+        //console.log(index);
 
 
 
@@ -319,6 +340,15 @@ input:hover{
             var audio = new Audio('static/music/'+obj);
             //console.log(obj);
             //window.alert(obj);
+            console.log(obj);
+            
+            $.ajax({
+
+                type: "POST",
+                url:"{{ url_for('process') }}",
+                data: {"note" : obj}
+
+            })
 
             audio.play();
             button.disabled = true;
@@ -326,20 +356,13 @@ input:hover{
 
 
         function sendData(value) { 
-            
-            $.ajax({ 
-                url: '/process', 
-                type: 'POST', 
-                contentType: 'application/json', 
-                data: JSON.stringify({ 'value': value }), 
-                success: function(response) { 
-                    document.getElementById('output').innerHTML = response.result; 
-                }, 
-                error: function(error) { 
-                    console.log(error); 
-                } 
-            }); 
-        } 
+
+
+            //send note last played to verify submission by user
+
+            console.log(value);
+
+        }
 
 
         

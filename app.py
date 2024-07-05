@@ -1,5 +1,5 @@
-from flask import Flask, render_template, redirect, url_for, request
-
+from flask import Flask, render_template, redirect, url_for, request, render_template_string
+from werkzeug.datastructures import ImmutableMultiDict
 import os
 app = Flask(__name__)
 
@@ -10,13 +10,37 @@ def main(methods=['POST', 'GET']):
     return render_template("main.html")
 
 
+
+@app.route('/process', methods=['GET', 'POST'])
+def process():
+    
+    if(request.method == 'POST'):
+        global correct
+        
+        correct_ans_raw = request.form.to_dict()
+        #note as string will match that of radio button
+        correct = (correct_ans_raw['note'])
+        
+        print(correct)
+
+        
+        
+        
+        
+    
+    return render_template("main.html")
+
+
+
+
 @app.route('/submission', methods = ('GET', 'POST'))
 def submission(methods=['POST', 'GET']):
     if(request.method == 'POST'):
         
         option = request.form.getlist('select')
         print(option)
-        return option
+        print(correct)
+        return render_template_string("The correct answer was "+str(correct)+"\nYou selected "+str(option))
     if(request.method == 'GET'):
         return render_template("main.html")
         
@@ -33,14 +57,6 @@ def login():
     return render_template('login.html', error=error)
 
 
-@app.route('/process', methods=['GET', 'POST'])
-def process():
-    
-    data = request.form.get('data') 
-    # process the data using Python code 
-    #result = data.upper() 
-    
-    return render_template("main.html")
 
     
 
