@@ -208,6 +208,9 @@ input:hover{
 
     <script>
 
+        //variable to determine if note has been decided upon, set to true after button clicked to allow for submission
+        var played = false;
+
 
         function randNote(){
 
@@ -336,6 +339,7 @@ input:hover{
 
 
         function myFunction(button){
+
             const obj = randFile(randNote());
             var audio = new Audio('static/music/'+obj);
             //console.log(obj);
@@ -352,6 +356,20 @@ input:hover{
 
             audio.play();
             button.disabled = true;
+            played = true;
+        }
+
+        function checkPlayed(){
+
+            if(played == false){
+
+                button.disabled = true;
+            }
+            else{
+
+                button.disabled = false;
+            }
+
         }
 
 
@@ -383,13 +401,22 @@ input:hover{
         <form name = "submit" action="submission" method="post" onsubmit="">
             <input type="radio" id="note1" name="select" value="a">
             <label for="note1">A</label>
+
+
+            <input type="radio" id="note2" name="select" value="b♭">
+            <label for="note2">B♭</label>
+
     
     
             <input type="radio" id="note2" name="select" value="b">
             <label for="note2">B</label>
+
+
+            <input type="radio" id="note2" name="select" value="c">
+            <label for="note2">C</label>
     
             <p>
-                <input type=submit value="Next">
+                <input onclick="checkPlayed(this)" type=submit value="Next">
             </p>
     
     

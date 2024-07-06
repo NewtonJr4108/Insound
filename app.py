@@ -21,7 +21,7 @@ def process():
         #note as string will match that of radio button
         correct = (correct_ans_raw['note'])
         
-        print(correct)
+        #print(correct)
 
         
         
@@ -38,8 +38,8 @@ def submission(methods=['POST', 'GET']):
     if(request.method == 'POST'):
         
         option = request.form.getlist('select')
-        print(option)
-        print(correct)
+        #print(option)
+        #print(correct)
         return render_template_string("The correct answer was "+str(correct)+"\nYou selected "+str(option))
     if(request.method == 'GET'):
         return render_template("main.html")
