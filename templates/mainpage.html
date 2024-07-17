@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+<style>
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:600');
+
+
+
+
+body {
+    align-items: center;
+    background: #EEF5FD;
+    color: #545556;
+    display: flex;
+    font-family: "Open Sans", sans-serif;
+    font-size: 20px;
+    height: 100vh;
+    justify-content: center;
+    margin: 0;
+}
+
+
+
+
+
+
+input{
+
+    background-color: rgba(244, 244, 244, 0.772);
+    border-radius: 8px;
+    border-width: 0;
+    color: #1a1919;
+    border-color: white;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 10px 12px;
+    text-align: center;
+    transition: all 200ms;
+    vertical-align: baseline;
+    white-space: nowrap;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+
+
+}
+
+
+
+button {
+    background-color: rgba(244, 244, 244, 0.772);
+    border-radius: 8px;
+    border-width: 0;
+    color: #1a1919;
+    border-color: white;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 10px 12px;
+    text-align: center;
+    transition: all 200ms;
+    vertical-align: baseline;
+    white-space: nowrap;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+button:hover{
+
+
+    background-color: rgba(121, 117, 117, 0.772);
+    border-radius: 8px;
+    border-width: 0;
+    color: #1a1919;
+    border-color: white;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 10px 12px;
+    text-align: center;
+    transition: all 200ms;
+    vertical-align: baseline;
+    white-space: nowrap;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+
+
+}
+
+button:disabled{
+
+    background-color: rgba(121, 117, 117, 0.772);
+    border-radius: 8px;
+    border-width: 0;
+    color: #1a1919;
+    border-color: white;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 10px 12px;
+    text-align: center;
+    transition: all 200ms;
+    vertical-align: baseline;
+    white-space: nowrap;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+
+
+
+}
+
+input:hover{
+
+    background-color: rgba(121, 117, 117, 0.772);
+    border-radius: 8px;
+    border-width: 0;
+    color: #1a1919;
+    border-color: white;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 10px 12px;
+    text-align: center;
+    transition: all 200ms;
+    vertical-align: baseline;
+    white-space: nowrap;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+
+}
+
+
+
+
+    footer{
+
+        color: aqua;
+
+        background-color: aqua;
+    }
+
+
+    body{
+
+        
+
+        background-color: #ffffff;
+
+        color: #31363F;
+
+        
+    }
+    p {
+        font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 20px;
+
+
+}
+
+
+    
+</style>
+
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nabla&display=swap" rel="stylesheet">  
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Insound</title>
+</head>
+
+<style>
+    .h1 {
+    font-family: "Nabla", system-ui;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+    "EDPT" 100,
+    "EHLT" 12;
+}
+
+
+
+
+</style>
+
+<h1>
+    Welcome, {{ user }}
+</h1>
+
+<h1>
+
+
+
+        <a href="{{ url_for('notes')}}">Practice With Notes</a>
+
+    </p>
+
+
+</h1>
+<body>
+
+
+    
+</body>
+</html>

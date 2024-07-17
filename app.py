@@ -117,7 +117,9 @@ def login():
 
 @app.route('/main')
 def mainpage():
-    return session['username']
+    #return session['username']
+    
+    return render_template("mainpage.html", user = session['username'])
 
 @app.route('/correct', methods=['GET', 'POST'])
 def correct():
