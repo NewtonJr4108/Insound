@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, url_for, request, render_template_string, flash
+from flask import Flask, render_template, redirect, url_for, request, render_template_string, flash, session
 from werkzeug.datastructures import ImmutableMultiDict
 import os
 from pymongo import MongoClient
@@ -78,12 +78,13 @@ def register():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
+        
 
         # Check if the username already exists
         if users_collection.find_one({'username': username}):
             flash('Username already exists. Choose a different one.', 'danger')
         else:
-            users_collection.insert_one({'username': username, 'password': password})
+            users_collection.insert_one({'username': username, 'password': password, 'score':'0'})
             flash('Registration successful. You can now log in.', 'success')
             return redirect(url_for('login'))
 
@@ -95,18 +96,40 @@ def login():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
+        
+        
 
         # Check if the username and password match
         user = users_collection.find_one({'username': username, 'password': password})
         if user:
-            flash('Login successful. welcome '+user['username'], 'success')
+            flash('Login successful. welcome '+user['username']+"\nScore: "+user['score'], 'success')
             # Add any additional logic, such as session management
+            
+            session['username'] = request.form['username']
+            session['password'] = request.form['password']
+            session['score'] = user['score']
         else:
             flash('Invalid username or password. Please try again.', 'danger')
 
     return render_template('login.html')
 
-
+@app.route('/correct', methods=['GET', 'POST'])
+def correct():
+    if request.method == 'GET':
+        return session['score']
+    if request.method == 'POST':
+        
+        #prints entire database, very useful!
+        '''
+        for x in users_collection.find():
+            print(x)
+            '''
+            
+        users_collection.update_one(
+            #TODO
+            #put update data here
+        )
+        
     
 
 if __name__ == "__main__":

@@ -208,6 +208,19 @@ input:hover{
 
     <script>
 
+        function updateScore(){
+
+
+            $.ajax({
+
+            type: "POST",
+            url:"{{ url_for('correct') }}"
+
+})
+
+
+        }
+
         //variable to determine if note has been decided upon, set to true after button clicked to allow for submission
         var played = false;
 
@@ -394,6 +407,8 @@ input:hover{
         <br>
         <br>
         <button value="sound" onclick="window.location.reload()">Change Note</button>
+
+
     
         <br>
         <p>What note is this?</p>
@@ -430,4 +445,9 @@ input:hover{
 
         
 </body>
+<footer>
+    <button onclick="updateScore()">
+        TEST
+    </button>
+</footer>
 </html>
