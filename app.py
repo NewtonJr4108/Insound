@@ -102,16 +102,22 @@ def login():
         # Check if the username and password match
         user = users_collection.find_one({'username': username, 'password': password})
         if user:
-            flash('Login successful. welcome '+user['username']+"\nScore: "+user['score'], 'success')
+            #flash('Login successful. welcome '+user['username']+"\nScore: "+user['score'], 'success')
             # Add any additional logic, such as session management
             
             session['username'] = request.form['username']
             session['password'] = request.form['password']
             session['score'] = user['score']
+            
+            return redirect(url_for('mainpage'))
         else:
             flash('Invalid username or password. Please try again.', 'danger')
 
     return render_template('login.html')
+
+@app.route('/main')
+def mainpage():
+    return session['username']
 
 @app.route('/correct', methods=['GET', 'POST'])
 def correct():
