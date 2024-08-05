@@ -1,30 +1,12 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
-<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-
-<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
-
-<style>
-
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:600');
-
-footer{
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100;
-    background-color: black;
-
-    color: white;
-
-
-    text-align: center;
-
-    
-}
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Open+Sans:600');
 
 
 
@@ -40,6 +22,9 @@ body {
     justify-content: center;
     margin: 0;
 }
+
+
+
 
 
 
@@ -184,6 +169,13 @@ input:hover{
 
 
 
+    footer{
+
+        color: aqua;
+
+        background-color: aqua;
+    }
+
 
     body{
 
@@ -196,77 +188,33 @@ input:hover{
         
     }
     p {
+        text-decoration: overline underline;
         font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
         font-size: 20px;
 
 
 }
 
-header{
-    background-color: black;
-}
+
     
-</style>
 
-<html lang="en">
-<head>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nabla&display=swap" rel="stylesheet">  
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home | Insound</title>
+    </style>
+    <title>Document</title>
 </head>
-
-<style>
-    .h1 {
-    font-family: "Nabla", system-ui;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-    font-variation-settings:
-    "EDPT" 100,
-    "EHLT" 12;
-}
-
-</style>
-
-<img src="{{url_for('static', filename='titlepageicon.png')}}" alt="title">
-
-
-<h1>
-
-    <p>
-        <a href="{{ url_for('register')}}">register</a>
-    </p>
-
-    <p>
-        <a href="{{ url_for('login')}}">login</a>
-    </p>
-
-    <!--
-
-    <p>
-
-        <a href="{{ url_for('notes')}}">Practice With Notes</a>
-
-    </p>
-
--->
-
-</h1>
 <body>
+
+
+    <h1>You answered {{ya}}. The correct answer is {{ca}}.</h1>
+    <br>
+
+    <center>
+
+        <a href={{ url_for('notes') }}>Next</a>
+    
+
+    </center>
 
 
     
 </body>
-
-
-<div class="footer">
-
-    <footer>Hi</footer>
-
-</div>
-  
 </html>

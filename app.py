@@ -2,6 +2,7 @@ from flask import Flask, render_template, redirect, url_for, request, render_tem
 from werkzeug.datastructures import ImmutableMultiDict
 import os
 from pymongo import MongoClient
+from markupsafe import Markup
 
 app = Flask(__name__)
 
@@ -22,7 +23,7 @@ def main(methods=['POST', 'GET']):
     
 @app.route('/notes',methods = ['GET', 'POST'])
 def notes():
-    return render_template("main.html")
+    return render_template("main.html", count=session['score'])
 
 
 @app.route('/process', methods=['GET', 'POST'])
@@ -54,7 +55,8 @@ def submission(methods=['POST', 'GET']):
         option = request.form.getlist('select')
         #print(option)
         #print(correct)
-        return render_template_string("The correct answer was "+str(correct)+"\nYou selected "+str(option))
+        #return render_template_string("The correct answer was "+str(correct)+"\nYou selected "+str(option))
+        return render_template("result.html", ya = str(option), ca = str(correct))
     if(request.method == 'GET'):
         return render_template("main.html")
         
@@ -111,7 +113,7 @@ def login():
             
             return redirect(url_for('mainpage'))
         else:
-            flash('Invalid username or password. Please try again.', 'danger')
+            flash(Markup('Invalid username or password. Please try again or register here: <a href="/register" class="alert-link">here</a>'), 'danger')
 
     return render_template('login.html')
 
